@@ -38,7 +38,9 @@ public class MainActivity extends BaseActivity {
 
         fillStores();
 
+//        mAdapter 객체화
         mAdapter = new StoreAdapter(mContext, storeList);
+//        미리 만들어둔 listView 변수와 방금 만든 어댑터를 서로 연결.
         storeListView.setAdapter(mAdapter);
 
     }
