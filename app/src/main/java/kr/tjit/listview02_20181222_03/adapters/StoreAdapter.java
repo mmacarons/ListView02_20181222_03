@@ -49,7 +49,7 @@ public class StoreAdapter extends ArrayAdapter<Store> {
         TextView storeOpenTimeTxt = row.findViewById(R.id.storeOpenTimeTxt);
 
 //        position번째 데이터를 빼내와라.
-        Store data = mList.get(position);
+        final Store data = mList.get(position);
 
 //        각각의 뷰에 데이터 세팅.
         storeNameTxt.setText(data.getName());
