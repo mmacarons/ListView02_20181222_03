@@ -2,7 +2,14 @@ package kr.tjit.listview02_20181222_03.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -25,5 +32,38 @@ public class StoreAdapter extends ArrayAdapter<Store> {
         this.mList = mList;
         this.inf = LayoutInflater.from(mContext);
 
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View row = convertView;
+        if (row==null) {
+//            row가 null이라면 비어있는 곳에 내용을 집어넣어라.
+//            inflate: xml파일을 불러다가 실제로 메모리에 올려주는 역할
+            row = inf.inflate(R.layout.store_list_item, null);
+        }
+
+        TextView storeNameTxt = row.findViewById(R.id.storeNameTxt);
+        TextView storeAddressTxt = row.findViewById(R.id.storeAddressTxt);
+        Button storeCallBtn = row.findViewById(R.id.storeCallBtn);
+        TextView storeOpenTimeTxt = row.findViewById(R.id.storeOpenTimeTxt);
+
+//        position번째 데이터를 빼내와라.
+        Store data = mList.get(position);
+
+//        각각의 뷰에 데이터 세팅.
+        storeNameTxt.setText(data.getName());
+        storeAddressTxt.setText(data.getAddress());
+        storeOpenTimeTxt.setText(data.getOpenAndCloseTime());
+
+        storeCallBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, data.getPhoneNum()+"에게 전화를 겁니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        return row;
     }
 }
