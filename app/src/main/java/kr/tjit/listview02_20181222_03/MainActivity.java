@@ -33,6 +33,22 @@ public class MainActivity extends BaseActivity {
     @Override
     public void setValues() {
 
+        fillStores();
+
+    }
+
+//    가게 데이터를 채우기 위한 임시 메쏘드
+    void fillStores() {
+        storeList.clear();
+
+        storeList.add(new Store("BBQ", "종로구 10길", 4, "오후 2시 ~ 오전 1시", "01012345678"));
+        storeList.add(new Store("네네치킨", "종로구 7길", 4, "오후 3시 ~ 오전 4시", "01094215684"));
+        storeList.add(new Store("굽네치킨", "종로구 15길", 4, "오후 4시 ~ 오전 3시", "01012345678"));
+        storeList.add(new Store("노랑통닭", "종로구 8길", 4, "오후 2시 ~ 오전 7시", "01094215684"));
+        storeList.add(new Store("디디치킨", "종로구 1길", 4, "오후 7시 ~ 오전 2시", "01012345678"));
+        storeList.add(new Store("BHC", "종로구 2길", 4, "오후 2시 ~ 오전 3시", "01094215684"));
+        storeList.add(new Store("교촌치킨", "종로구 4길", 4, "오후 4시 ~ 오전 1시", "01012345678"));
+
     }
 
     @Override
