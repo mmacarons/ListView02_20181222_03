@@ -1,7 +1,10 @@
 package kr.tjit.listview02_20181222_03;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -30,6 +33,25 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
+
+        storeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                position 변수에는 몇번째 줄이 눌렸는지를 담고 있음.
+//                이를 활용해서 상황에 맞는 대처.
+
+//                눌린 가게가 어떤 가게인지? -> storeList 배열이 가지고 있음
+                Store clickedStore = storeList.get(position);
+
+//                눌린 가게를 Intent에 첨부해서 가게 상세화면으로 전달 + 이동.
+                Intent intent = new Intent(mContext, StoreDetailActivity.class);
+
+//                에러발생 -> store 클래스를 통째로 가져오려면 store클래스에서 implements Serializable 작업이 필요함
+                intent.putExtra("storeData", clickedStore);
+                startActivity(intent);
+
+            }
+        });
 
     }
 
