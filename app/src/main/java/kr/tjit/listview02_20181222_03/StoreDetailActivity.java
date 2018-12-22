@@ -11,7 +11,7 @@ public class StoreDetailActivity extends BaseActivity {
 //    클래스의 멤버변수로 받아올 데이터 변수를 생성.
 Store mStore;
     private android.widget.ImageView logoImg;
-    private TextView temㅈpTxt;
+    private TextView tempTxt;
     private TextView nameTxt;
     private TextView addressTxt;
     private TextView openTimeTxt;
